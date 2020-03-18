@@ -11,3 +11,18 @@ inputs:
   token:
     description: "Authentication token"
     required: true
+  organization:
+    description: "The name of the DSM organization"
+    required: true
+  dsmHost:
+    description: "The URL to which the Storybook will be uploaded"
+    required: false
+    default: "projects.invisionapp.com"
+  outputDir:
+    description: "Builds the output folder path"
+    required: false
+    default: ".dsm"
+  storyPath:
+    description: "A glob pattern of where DSM should search for stories"
+    required: false
+    default: "src/**/*.stories.js"

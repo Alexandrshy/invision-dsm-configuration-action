@@ -1,10 +1,25 @@
 import * as core from "@actions/core";
+import fs from "fs";
 
 try {
-  const token = core.getInput("token", {
-    required: true
-  });
-  console.log("token", token);
+  fs.writeFileSync(
+    "./",
+    JSON.stringify(
+      {
+        authToken: core.getInput("token", {
+          required: true
+        }),
+        dsmHost: core.getInput("dsmHost"),
+        organization: core.getInput("organization", {
+          required: true
+        }),
+        outputDir: core.getInput("outputDir"),
+        storyPath: core.getInput("storyPath")
+      },
+      null,
+      2
+    )
+  );
 } catch (error) {
   core.setFailed(`Action failed with "${error.message}"`);
 }
