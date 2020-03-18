@@ -1,0 +1,13 @@
+name: "Invision DSM configuration action"
+description: "Create a DSM configuration file"
+author: "Alexandrshy"
+runs:
+  using: "node12"
+  main: "dist/index.js"
+branding:
+  icon: "package"
+  color: "black"
+inputs:
+  token:
+    description: "Authentication token"
+    required: true

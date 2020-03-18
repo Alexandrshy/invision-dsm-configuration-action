@@ -1,0 +1,56 @@
+{
+  "name": "github-action",
+  "version": "1.0.0",
+  "description": "Adding a DSM configuration file",
+  "author": "Alex Shulaev <alexandrshy@gmail.com>",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build ./src/index.ts -o dist",
+    "lint": "eslint ./**/*.ts",
+    "lint:fix": "eslint --fix ./**/*.ts",
+    "format": "prettier --write ./**/*.ts",
+    "tsc": "tsc",
+    "package": "ncc build src/index.ts -o dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexandrshy/invision-dsm-configuration-action.git"
+  },
+  "keywords": [
+    "GitHub Actions",
+    "Actions",
+    "JavaScript Action",
+    "TypeScript Action",
+    "Invision DSM"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alexandrshy/invision-dsm-configuration-action/issues"
+  },
+  "homepage": "https://github.com/Alexandrshy/invision-dsm-configuration-action#readme",
+  "husky": {
+    "skipCI": true,
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "prettier --check",
+      "eslint"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "@zeit/ncc": "^0.21.1",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.3"
+  }
+}
