@@ -1,4 +1,4 @@
-name: "Invision DSM configuration action"
+name: Invision DSM configuration
 description: "Create a DSM configuration file"
 author: "Alexandrshy"
 runs:
