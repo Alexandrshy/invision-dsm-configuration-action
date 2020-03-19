@@ -62,13 +62,25 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(470));
+const fs_1 = __importDefault(__webpack_require__(747));
+console.log("process.env.GITHUB_WORKSPACE", process.env.GITHUB_WORKSPACE);
 try {
-    const token = core.getInput("token", {
-        required: true
-    });
-    console.log("token", token);
+    fs_1.default.writeFileSync(`${process.env.GITHUB_WORKSPACE}/.dsmrc`, JSON.stringify({
+        authToken: core.getInput("token", {
+            required: true
+        }),
+        dsmHost: core.getInput("dsmHost"),
+        organization: core.getInput("organization", {
+            required: true
+        }),
+        outputDir: core.getInput("outputDir"),
+        storyPath: core.getInput("storyPath")
+    }, null, 2));
 }
 catch (error) {
     core.setFailed(`Action failed with "${error.message}"`);
@@ -382,6 +394,13 @@ exports.getState = getState;
 /***/ (function(module) {
 
 module.exports = require("path");
+
+/***/ }),
+
+/***/ 747:
+/***/ (function(module) {
+
+module.exports = require("fs");
 
 /***/ })
 

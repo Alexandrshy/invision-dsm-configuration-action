@@ -11,9 +11,7 @@ try {
         authToken: core.getInput("token", {
           required: true
         }),
-        dsmHost: core.getInput("dsmHost", {
-          required: true
-        }),
+        dsmHost: core.getInput("dsmHost"),
         organization: core.getInput("organization", {
           required: true
         }),
