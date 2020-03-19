@@ -1,9 +1,11 @@
 import * as core from "@actions/core";
 import fs from "fs";
 
+console.log("process.env.GITHUB_WORKSPACE", process.env.GITHUB_WORKSPACE);
+
 try {
   fs.writeFileSync(
-    "./",
+    `${process.env.GITHUB_WORKSPACE}/.dsmrc`,
     JSON.stringify(
       {
         authToken: core.getInput("token", {
