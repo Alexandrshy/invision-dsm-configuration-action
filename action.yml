@@ -16,8 +16,7 @@ inputs:
     required: true
   dsmHost:
     description: "The URL to which the Storybook will be uploaded"
-    required: false
-    default: "projects.invisionapp.com"
+    required: true
   outputDir:
     description: "Builds the output folder path"
     required: false
