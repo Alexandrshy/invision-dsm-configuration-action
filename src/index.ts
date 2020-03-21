@@ -1,16 +1,18 @@
 import * as core from "@actions/core";
 import fs from "fs";
 
-console.log("process.env.GITHUB_WORKSPACE", process.env.GITHUB_WORKSPACE);
+const token = core.getInput("token", {
+  required: true
+});
+
+console.log("tokentoken", token);
 
 try {
   fs.writeFileSync(
     `${process.env.GITHUB_WORKSPACE}/.dsmrc`,
     JSON.stringify(
       {
-        authToken: core.getInput("token", {
-          required: true
-        }),
+        authToken: token,
         dsmHost: core.getInput("dsmHost"),
         organization: core.getInput("organization", {
           required: true
