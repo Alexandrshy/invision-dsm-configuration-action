@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.2 (2020-03-21)
+
+
+### Bug Fixes
+
+* fixed changelog ([063ff91](https://github.com/Alexandrshy/invision-dsm-configuration-action/commit/063ff912f0860cf2841eab80f3b1031450db2b4b))
+
 ### 1.0.1 (2020-03-21)
 
 ### Bug Fixes
