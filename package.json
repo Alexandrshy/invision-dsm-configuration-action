@@ -10,7 +10,8 @@
     "lint:fix": "eslint --fix ./**/*.ts",
     "format": "prettier --write ./**/*.ts",
     "tsc": "tsc",
-    "package": "ncc build src/index.ts -o dist"
+    "package": "ncc build src/index.ts -o dist",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -52,6 +53,7 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
+    "standard-version": "^7.1.0",
     "typescript": "^3.8.3"
   },
   "dependencies": {
