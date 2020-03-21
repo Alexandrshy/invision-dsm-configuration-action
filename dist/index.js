@@ -68,7 +68,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(470));
 const fs_1 = __importDefault(__webpack_require__(747));
-console.log("process.env.GITHUB_WORKSPACE", process.env.GITHUB_WORKSPACE);
 try {
     fs_1.default.writeFileSync(`${process.env.GITHUB_WORKSPACE}/.dsmrc`, JSON.stringify({
         authToken: core.getInput("token", {
