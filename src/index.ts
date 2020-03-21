@@ -1,13 +1,14 @@
 import * as core from "@actions/core";
 import fs from "fs";
 
-const token = core.getInput("token", {
-  required: true
-});
-
-console.log("tokentoken", token);
-
 try {
+  const token = core.getInput("token", {
+    required: true
+  });
+
+  console.log("1. token", token);
+  const encodedToken = Buffer.from(token, "base64");
+  console.log("2. encodedToken", encodedToken);
   fs.writeFileSync(
     `${process.env.GITHUB_WORKSPACE}/.dsmrc`,
     JSON.stringify(
