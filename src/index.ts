@@ -13,7 +13,7 @@ try {
     `${process.env.GITHUB_WORKSPACE}/.dsmrc`,
     JSON.stringify(
       {
-        authToken: encodedToken,
+        authToken: token,
         dsmHost: core.getInput("dsmHost"),
         organization: core.getInput("organization", {
           required: true
