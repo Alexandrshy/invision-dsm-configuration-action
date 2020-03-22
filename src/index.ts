@@ -7,7 +7,7 @@ try {
   const filePath = core.getInput("filePath");
   const absoluteFilePath = path.isAbsolute(filePath)
     ? filePath
-    : path.join(process.env.GITHUB_WORKSPACE || "", filePath);
+    : path.join(process.env.GITHUB_WORKSPACE || "", filePath || "/");
 
   if (!fs.existsSync(absoluteFilePath))
     throw new Error(`File path: ${absoluteFilePath} does not exist `);
