@@ -74,7 +74,7 @@ try {
     const filePath = core.getInput("filePath");
     const absoluteFilePath = path_1.default.isAbsolute(filePath)
         ? filePath
-        : path_1.default.join(process.env.GITHUB_WORKSPACE || "", filePath);
+        : path_1.default.join(process.env.GITHUB_WORKSPACE || "", filePath || "/");
     if (!fs_1.default.existsSync(absoluteFilePath))
         throw new Error(`File path: ${absoluteFilePath} does not exist `);
     fs_1.default.writeFileSync(`${absoluteFilePath}${fileName}`, JSON.stringify({
@@ -90,7 +90,7 @@ try {
     }, null, 2));
 }
 catch (error) {
-    core.setFailed(`Action failed with "${error.message}"`);
+    core.setFailed(`Action failed: "${error.message}"`);
 }
 
 
