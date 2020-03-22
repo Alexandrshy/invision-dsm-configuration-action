@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Publish
+        run: |
+          yarn
+          yarn package
+
+      - name: Preparation for publish
+        run: |
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config user.name "$GITHUB_ACTOR"
+          yarn release
+          git push --follow-tags https://"$GITHUB_ACTOR":"$GITHUB_TOKEN"@github.com/"$GITHUB_REPOSITORY".git HEAD:master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_MERGE_TOKEN }}

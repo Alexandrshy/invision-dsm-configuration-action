@@ -26,3 +26,11 @@ inputs:
     description: "A glob pattern of where DSM should search for stories"
     required: false
     default: "src/**/*.stories.js"
+  filePath:
+    description: "The path to the location of the configuration file"
+    required: false
+    default: ""
+  fileName:
+    description: "The file name"
+    required: false
+    default: ".dsmrc"
