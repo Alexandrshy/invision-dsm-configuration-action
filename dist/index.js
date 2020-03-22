@@ -68,8 +68,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(470));
 const fs_1 = __importDefault(__webpack_require__(747));
+const path_1 = __importDefault(__webpack_require__(622));
 try {
-    fs_1.default.writeFileSync(`${process.env.GITHUB_WORKSPACE}/.dsmrc`, JSON.stringify({
+    const fileName = core.getInput("fileName");
+    const filePath = core.getInput("filePath");
+    const absoluteFilePath = path_1.default.isAbsolute(filePath)
+        ? filePath
+        : path_1.default.join(process.env.GITHUB_WORKSPACE || "", filePath);
+    if (!fs_1.default.existsSync(absoluteFilePath))
+        throw new Error(`File path: ${absoluteFilePath} does not exist `);
+    fs_1.default.writeFileSync(`${absoluteFilePath}${fileName}`, JSON.stringify({
         authToken: core.getInput("token", {
             required: true
         }),
